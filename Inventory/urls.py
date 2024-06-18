@@ -4,9 +4,9 @@ from .views import inventory_list,per_product_view,add_product
 
 urlpatterns = [
    path("",inventory_list,name="inventory_list"),
-   path("per_product/<int:pk>/", per_product_view, name='per_product_view'),
+   path("per_product/<int:pk>", per_product_view, name='per_product'),
    #path("per_product/<int:pk>/",per_product_view,name='per_product_view'),
-   path("add_inventory",add_product,name='add_inventory'),
+   path("add_inventory/",add_product,name='add_inventory')
 
   
 ]

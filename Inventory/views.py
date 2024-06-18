@@ -14,7 +14,7 @@ def inventory_list(request):
         "inventories": inventories
     
     }
-    return render(request, "inventor/inventory_list.html", context=context)     # folder name Inventor and has file index.....# Context used to provide a title
+    return render(request, "Inventor/inventory_list.html", context=context)     # folder name Inventor and has file index.....# Context used to provide a title
     #return render(request, 'Inventor/inventory_list.html', {'inventories': inventories}) #context=context)
  
 @login_required
@@ -30,7 +30,7 @@ def per_product_view(request,pk):
 @login_required
 def add_product(request):
     if request.method == "POST":
-        add_form = AddInventoryForm()
+        add_form = AddInventoryForm(data=request.POST)
         if add_form.is_valid():
             new_inventory = add_form.save(commit=False)
             new_inventory.sales = float(add_form.cleaned_data['cost_per_item']) * float(add_form.cleaned_data['quantity_sold'])
